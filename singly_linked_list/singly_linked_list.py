@@ -56,6 +56,16 @@ class LinkedList:
         return False
         """
 
+    def remove_head(self):
+        if not self.head:
+            return None
+        else:
+            value = self.head.value
+            self.head = self.head.next
+            if not self.head:
+                self.tail = self.head
+            return value
+
 
 class Node:
     def __init__(self, value):
