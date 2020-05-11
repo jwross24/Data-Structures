@@ -44,6 +44,18 @@ class LinkedList:
         self.tail.next = node
         self.tail = self.tail.next
 
+    def contains(self, value):
+        return any(value == node.value for node in self)
+
+        """
+        Longer way:
+
+        for node in self:
+            if node.value == value:
+                return True
+        return False
+        """
+
 
 class Node:
     def __init__(self, value):
