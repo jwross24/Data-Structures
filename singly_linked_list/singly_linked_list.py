@@ -66,6 +66,15 @@ class LinkedList:
                 self.tail = self.head
             return value
 
+    def get_max(self):
+        if not self.head:
+            return None
+        max_ = self.head.value
+        for node in self:
+            if max_ < node.value:
+                max_ = node.value
+        return max_
+
 
 class Node:
     def __init__(self, value):
