@@ -56,6 +56,14 @@ class LinkedList:
         return False
         """
 
+    def add_to_head(self, value):
+        node = Node(value=value)
+        if not self.head:
+            self.head = node
+            self.tail = node
+            return None
+        self.head, self.head.next = node, self.head
+
     def remove_head(self):
         if not self.head:
             return None
