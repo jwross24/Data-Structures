@@ -4,12 +4,15 @@ class LinkedList:
         Initialize the linked list, with optional input data.
         '''
         self.head = None
+        self.tail = None
         if nodes:
             node = Node(value=nodes.pop(0))
             self.head = node
+            self.tail = node
             for elem in nodes:
                 node.next = Node(value=elem)
                 node = node.next
+                self.tail = node
 
     def __str__(self):
         '''
@@ -21,7 +24,7 @@ class LinkedList:
             nodes.append(node.value)
             node = node.next
         nodes.append("None")
-        return " -> ".join(nodes)
+        return " -> ".join(map(str, nodes))
 
     def __iter__(self):
         '''
@@ -31,6 +34,15 @@ class LinkedList:
         while node:
             yield node
             node = node.next
+
+    def add_to_tail(self, value):
+        node = Node(value=value)
+        if not self.head:
+            self.head = node
+            self.tail = node
+            return None
+        self.tail.next = node
+        self.tail = self.tail.next
 
 
 class Node:
@@ -45,12 +57,4 @@ class Node:
         '''
         String representation of a node.
         '''
-        return self.value
-
-
-if __name__ == '__main__':
-    llist = LinkedList(['a', 'b', 'c', 'd', 'e'])
-    print(llist)
-
-    for node in llist:
-        print(node)
+        return str(self.value)
