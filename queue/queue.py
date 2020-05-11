@@ -40,23 +40,3 @@ class Queue:
                     self.stack2.push(x)
 
         return self.stack2.pop()
-
-
-if __name__ == '__main__':
-    q = Queue()
-    q.enqueue(100)
-
-    print(len(q.stack1))
-    q.enqueue(101)
-
-    print(len(q.stack1))
-    q.enqueue(105)
-
-    print(len(q.stack1))
-
-    print(q.stack1.storage)
-    print(q.stack2.storage)
-
-    print(q.dequeue())
-    print(q.stack2.storage)
-    print(len(q.stack2))
